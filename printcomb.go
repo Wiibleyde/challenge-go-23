@@ -12,10 +12,10 @@ func PrintComb() {
 					z01.PrintRune(rune(i) + 48)
 					z01.PrintRune(rune(j) + 48)
 					z01.PrintRune(rune(k) + 48)
-					if i != 8 || j != 9 || k != 9 {
+					if rune(i+48) != '7' || rune(j+48) != '8' || rune(k+48) != '9' {
 						z01.PrintRune(',')
 						z01.PrintRune(' ')
-					} else if k == 9 && j == 8 && i == 7 {
+					} else {
 						z01.PrintRune('\n')
 					}
 				}
