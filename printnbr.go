@@ -1,8 +1,6 @@
 package student
 
-import (
-	"github.com/01-edu/z01"
-)
+import "github.com/01-edu/z01"
 
 func PrintNbr(n int) {
 	negative := n < 0
