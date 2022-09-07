@@ -5,7 +5,7 @@ import (
 )
 
 func reverse_int(n int) int {
-    new_int := 0
+	new_int := 0
 	negative := false
 	if n < 0 {
 		negative = true
@@ -25,17 +25,17 @@ func reverse_int(n int) int {
 }
 
 func PrintNbr(n int) {
-		nb := reverse_int(n)
-		if nb < 0 {
-			z01.PrintRune('-')
-			nb = nb * -1
-		}
-		if nb == 0 {
-			z01.PrintRune('0')
-		}
-		for nb > 0 {
-			z01.PrintRune(rune(nb % 10 + '0'))
-			nb = nb / 10
-		}
-		z01.PrintRune('\n')
+	nb := reverse_int(n)
+	if nb < 0 {
+		z01.PrintRune('-')
+		nb = nb * -1
 	}
+	if nb == 0 {
+		z01.PrintRune('0')
+	}
+	for nb > 0 {
+		z01.PrintRune(rune(nb % 10 + '0'))
+		nb = nb / 10
+	}
+	z01.PrintRune('\n')
+}
