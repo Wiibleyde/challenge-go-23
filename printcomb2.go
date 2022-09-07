@@ -14,7 +14,7 @@ func PrintComb2() {
 					z01.PrintRune(' ')
 					z01.PrintRune(rune(i) + 48)
 					z01.PrintRune(rune(j) + 48)
-					if rune(a + 48) != '9' || rune(b + 48) != '9' || rune(i + 48) != '9' || rune(j + 48) != '9' {
+					if rune(a+48) != '9' || rune(b+48) != '9' || rune(i+48) != '9' || rune(j+48) != '9' {
 						z01.PrintRune(',')
 						z01.PrintRune(' ')
 					} else {
