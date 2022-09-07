@@ -34,7 +34,7 @@ func PrintNbr(n int) {
 		z01.PrintRune('0')
 	}
 	for nb > 0 {
-		z01.PrintRune(rune(nb % 10 + '0'))
+		z01.PrintRune(rune(nb%10 + '0'))
 		nb = nb / 10
 	}
 	z01.PrintRune('\n')
