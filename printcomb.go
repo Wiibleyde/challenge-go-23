@@ -15,10 +15,11 @@ func PrintComb() {
 					if i != 9 {
 						z01.PrintRune(',')
 						z01.PrintRune(' ')
+					} else if k==9{
+						z01.PrintRune('\n')
 					}
 				}
 			}
 		}
 	}
-	z01.PrintRune('\n')
 }
