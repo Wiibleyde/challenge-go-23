@@ -45,7 +45,7 @@ func rec(n int) {
 			return
 		}
 		if (n-i)%10 == 0 {
-			rec((n-i)/10)
+			rec((n - i) / 10)
 			z01.PrintRune(rune(i + 48))
 			return
 		}
