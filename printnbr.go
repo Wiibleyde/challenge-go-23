@@ -1,33 +1,8 @@
-package main
+package student
 
 import (
 	"github.com/01-edu/z01"
 )
-
-func main() {
-	PrintNbr(-9223372036854775808)
-	z01.PrintRune('\n')
-}
-
-// func reverse_int(n int) int {
-// 	new_int := 0
-// 	negative := false
-// 	if n < 0 {
-// 		negative = true
-// 		n = n * -1
-// 	}
-// 	for n > 0 {
-// 		remainder := n % 10
-// 		new_int *= 10
-// 		new_int += remainder
-// 		n /= 10
-// 	}
-// 	if negative {
-// 		return new_int * -1
-// 	} else {
-// 		return new_int
-// 	}
-// }
 
 func PrintNbr(n int) {
 	negative := n < 0
