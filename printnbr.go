@@ -14,13 +14,13 @@ func reverse_int(n int) int {
     for n > 0 {
         remainder := n % 10
         new_int *= 10
-        new_int += remainder 
+        new_int += remainder
         n /= 10
 	}
 	if negative {
 		return new_int * -1
 	} else {
-		return new_int 
+		return new_int
 	}
 }
 
