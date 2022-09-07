@@ -11,11 +11,11 @@ func reverse_int(n int) int {
 		negative = true
 		n = n * -1
 	}
-    for n > 0 {
-        remainder := n % 10
-        new_int *= 10
-        new_int += remainder
-        n /= 10
+	for n > 0 {
+		remainder := n % 10
+		new_int *= 10
+		new_int += remainder
+		n /= 10
 	}
 	if negative {
 		return new_int * -1
