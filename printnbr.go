@@ -18,9 +18,9 @@ func reverse_int(n int) int {
         n /= 10
 	}
 	if negative {
-		return new_int*-1
+		return new_int * -1
 	} else {
-	return new_int 
+		return new_int 
 	}
 }
 
