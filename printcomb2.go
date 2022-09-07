@@ -20,8 +20,7 @@ func PrintComb2() {
 					if !(a == 9 && b == 8 && i == 9 && j == 9) {
 						z01.PrintRune(',')
 						z01.PrintRune(' ')
-					}
-					
+					}	
 				}
 			}
 		}
