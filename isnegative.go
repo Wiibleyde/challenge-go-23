@@ -1,3 +1,5 @@
+package IsNegative
+
 func IsNegative (nb int) {
 	if nb < 0 {
 		print(true)
