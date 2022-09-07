@@ -12,7 +12,7 @@ func PrintNbr(n int) {
 }
 
 func rec(n int) {
-	for i := int(0); i < 10; i++ {
+	for i := int(0); i <= 9; i++ {
 		if n <= 9 && n >= -9 {
 			z01.PrintRune(rune(n + 48))
 			return
