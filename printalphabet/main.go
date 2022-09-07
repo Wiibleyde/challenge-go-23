@@ -7,4 +7,5 @@ func main() {
 	for _,char := range alphabet {
 		z01.PrintRune(rune(char))
 	}
+	z01.PrintRune('\n')
 }
