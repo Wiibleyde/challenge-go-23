@@ -25,17 +25,17 @@ func reverse_int(n int) int {
 }
 
 func PrintNbr(n int) {
-	nb := reverse_int(n)
-	if nb < 0 {
-		z01.PrintRune('-')
-		nb = nb * -1
+		nb := reverse_int(n)
+		if nb < 0 {
+			z01.PrintRune('-')
+			nb = nb * -1
+		}
+		if nb == 0 {
+			z01.PrintRune('0')
+		}
+		for nb > 0 {
+			z01.PrintRune(rune(nb % 10 + '0'))
+			nb = nb / 10
+		}
+		z01.PrintRune('\n')
 	}
-	if nb == 0 {
-		z01.PrintRune('0')
-	}
-	for nb > 0 {
-		z01.PrintRune(rune(nb % 10 + '0'))
-		nb = nb / 10
-	}
-	z01.PrintRune('\n')
-}
