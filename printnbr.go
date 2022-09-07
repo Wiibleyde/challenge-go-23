@@ -10,7 +10,6 @@ func PrintNbr(n int) {
     if negative {
         z01.PrintRune('-')
     }
-
     rec(n)
 }
 
