@@ -1,10 +1,12 @@
-package student
+package main
 
 func IsNegative(nb int) {
 	if nb < 0 {
 		print(true)
+		print("\n")
 	} else {
 		print(false)
+		print("\n")
 	}
 }
 
