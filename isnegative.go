@@ -5,9 +5,9 @@ import "github.com/01-edu/z01"
 func IsNegative(nb int) {
 	if nb < 0 {
 		z01.PrintRune('T')
-		print("\n")
+		z01.PrintRune('\n')
 	} else {
 		z01.PrintRune('F')
-		print("\n")
+		z01.PrintRune('\n')
 	}
 }
