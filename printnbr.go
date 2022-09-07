@@ -17,7 +17,7 @@ func reverse_int(n int) int {
         new_int += remainder 
         n /= 10
 	}
-	if negative == true {
+	if negative {
 		return new_int*-1
 	} else {
 	return new_int 
