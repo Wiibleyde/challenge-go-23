@@ -9,7 +9,7 @@ func PrintComb2() {
 		for b := 0; b < 10; b++ {
 			for i := 0; i < 10; i++ {
 				for j := 0; j < 10; j++ {
-					if a+b<i+j {
+					if a+b < i+j {
 						z01.PrintRune(rune(a) + 48)
 						z01.PrintRune(rune(b) + 48)
 						z01.PrintRune(' ')
