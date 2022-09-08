@@ -4,6 +4,9 @@ func BasicAtoi2(s string) int {
 	nb := 0
 	for _, ch := range s {
 		nb = nb*10 + charToInt2(ch)
+		if charToInt2(ch) == 0 {
+			return 0
+		}
 	}
 	return nb
 }
