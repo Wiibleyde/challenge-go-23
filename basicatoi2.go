@@ -8,7 +8,7 @@ func BasicAtoi2(s string) int {
 			return 0
 		} else {
 		nb = nb*10 + charToInt2(ch)
-		}
+	}
 	}
 	return nb
 }
