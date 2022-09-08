@@ -1,6 +1,10 @@
 package student
 
 func StrLen(s string) int {
-	aString := []byte(s)
-	return len(aString)
+	counter:=0
+	for _,char := range s {
+		_=char
+		counter = counter + 1
+	}
+	return counter
 }
