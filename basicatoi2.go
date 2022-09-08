@@ -1,24 +1,24 @@
 package student
 
 func BasicAtoi2(s string) int {
-	nb := 0
+	nm := 0
+
 	for _, ch := range s {
-		if charToInt2(ch) == 1 {
-			nb = 0
+		if !containsIn0to9(ch) {
 			return 0
 		}
-		nb = nb*10 + charToInt2(ch)
+		nm = nm*10 + charToInt(ch)
 	}
-	return nb
+
+	return nm
 }
 
-func charToInt2(char rune) int {
-	count := 0
-	if char < 48 || char > 58 {
-		return 1
+func containsIn0to9(ch rune) bool {
+	for i := '0'; i <= '9'; i++ {
+		if ch == i {
+			return true
+		}
 	}
-	for i := '1'; i <= char; i++ {
-		count++
-	}
-	return count
+
+	return false
 }
