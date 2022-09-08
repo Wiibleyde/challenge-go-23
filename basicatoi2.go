@@ -11,7 +11,6 @@ func BasicAtoi2(s string) int {
 	return nb
 }
 
-
 func charToInt2(char rune) int {
 	count := 0
 	if char < 48 || char > 58 {
