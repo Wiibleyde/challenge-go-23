@@ -2,6 +2,9 @@ package student
 
 func IterativeFactorial(nb int) int {
 	var fact int = 1
+	if nb > 10 {
+		return 1
+	}
 	if nb < 0 {
 		return 0
 	}
