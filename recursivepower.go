@@ -15,4 +15,3 @@ func RecursivePower(nb int, power int) int {
 		return a
 	}
 }
-
