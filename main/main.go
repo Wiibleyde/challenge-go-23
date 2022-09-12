@@ -5,7 +5,7 @@ import (
 	"student"
 )
 
-func main () {
+func main() {
 	// var a int
 	// var b int
 	// a = 1
