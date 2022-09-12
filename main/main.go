@@ -6,5 +6,5 @@ import (
 )
 
 func main() {
-	fmt.Println(student.IterativePower(4, 3))
+	fmt.Println(student.RecursivePower(4, 3))
 }
