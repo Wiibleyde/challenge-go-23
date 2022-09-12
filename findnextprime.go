@@ -1,7 +1,7 @@
 package student
 
 func FindNextPrime(nb int) int {
-	for i := nb; i < 9999999; i++ {
+	for i := nb; i < 99999999999; i++ {
 		if IsPrime(i) {
 			return i
 		}
