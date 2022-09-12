@@ -1,8 +1,13 @@
 package student
 
 func IsPrime(nb int) bool {
-	if Sqrt(nb) == 0 {
-		return true
+	if nb < 2 {
+		return false
 	}
-	return false
+	for i := 2; i*i <= nb; i++ {
+		if nb%i == 0 {
+			return false
+		}
+	}
+	return true
 }
