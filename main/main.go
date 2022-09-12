@@ -6,5 +6,6 @@ import (
 )
 
 func main() {
-	fmt.Println(student.Sqrt(5))
+	fmt.Println(student.IsPrime(5))
+	fmt.Println(student.IsPrime(4))
 }
