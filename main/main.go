@@ -6,5 +6,5 @@ import (
 )
 
 func main() {
-	fmt.Println(student.Fibonacci(4))
+	fmt.Println(student.Sqrt(5))
 }
