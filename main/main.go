@@ -6,5 +6,5 @@ import (
 )
 
 func main() {
-	fmt.Println(student.IterativeFactorial(31323))
+	fmt.Println(student.IterativeFactorial(4))
 }
