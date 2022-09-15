@@ -1,7 +1,6 @@
 package main
 
 import (
-	// "fmt"
 	"student"
 	"github.com/01-edu/z01"
 )
