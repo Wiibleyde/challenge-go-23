@@ -6,6 +6,6 @@ import (
 )
 
 func main() {
-	fmt.Println(student.IsPrintable("s\\d Gs4kT[z/`"))
-	fmt.Println(student.IsPrintable("Hello\n"))
+	fmt.Println(student.ToUpper("Hello! How are you?"))
+
 }
