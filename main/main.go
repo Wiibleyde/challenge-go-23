@@ -6,6 +6,6 @@ import (
 )
 
 func main() {
-	fmt.Println(student.IsUpper("HELLO"))
-	fmt.Println(student.IsUpper("HELLO!"))
+	fmt.Println(student.IsLower("hello"))
+	fmt.Println(student.IsLower("hello!"))
 }
