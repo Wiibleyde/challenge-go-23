@@ -7,6 +7,6 @@ import (
 )
 
 func main() {
-	z01.PrintRune((student.FirstRune("Hello")))
-	z01.PrintRune((student.FirstRune("Hello")))
+	z01.PrintRune((student.LastRune("Hello")))
+	z01.PrintRune((student.LastRune("Hello")))
 }
