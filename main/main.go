@@ -1,10 +1,12 @@
 package main
 
 import (
-	"fmt"
+	// "fmt"
 	"student"
+	"github.com/01-edu/z01"
 )
 
 func main() {
-	fmt.Println(student.Sqrt(-122919))
+	z01.PrintRune((student.FirstRune("Hello")))
+	z01.PrintRune((student.FirstRune("Hello")))
 }
