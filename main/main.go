@@ -6,5 +6,6 @@ import (
 )
 
 func main() {
-	fmt.Println(student.Concat("Hello!", " How are you?"))
+	fmt.Println(student.IsUpper("HELLO"))
+	fmt.Println(student.IsUpper("HELLO!"))
 }
