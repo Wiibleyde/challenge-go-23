@@ -5,5 +5,5 @@ import (
 )
 
 func main() {
-	student.EightQueens()
+	print(student.Sqrt(-122919))
 }
