@@ -6,7 +6,5 @@ import (
 )
 
 func main() {
-	fmt.Println(student.Index("Hello!", "l"))
-	fmt.Println(student.Index("Salut!", "alu"))
-	fmt.Println(student.Index("Ola!", "hOl"))
+	fmt.Println(student.Concat("Hello!", " How are you?"))
 }
