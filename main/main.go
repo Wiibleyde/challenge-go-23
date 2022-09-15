@@ -6,7 +6,7 @@ import (
 )
 
 func main() {
-	fmt.Println(student.Compare("Hello!", "Hello!"))
-	fmt.Println(student.Compare("Salut!", "lut!"))
-	fmt.Println(student.Compare("Ola!", "Ol"))
+	s := "Hello 78 World!    4455 /"
+	nb := student.AlphaCount(s)
+	fmt.Println(nb)
 }
