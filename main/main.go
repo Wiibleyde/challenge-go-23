@@ -6,5 +6,6 @@ import (
 )
 
 func main() {
-	fmt.Println(piscine.Capitalize("ZqX%K\\J%MI=B%"))
+	toConcat := []string{"Hello!", " How", " are", " you?"}
+	fmt.Println(piscine.Join(toConcat, ":"))
 }
