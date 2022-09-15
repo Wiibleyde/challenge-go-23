@@ -1,35 +1,32 @@
 package student
 
 func Capitalize(s string) string {
-	nCapt := ""
-	for i := 0; i < StrLen(s); i++ {
-		if rune(s[i]) == 32 {
-			nCapt = nCapt + string(rune(32))
-			nCapt = nCapt + ToUpper(string(s[i+1]))
-			i = i + 1
-		} else if rune(s[i]) == 43 {
-			nCapt = nCapt + string(rune(43))
-			nCapt = nCapt + ToUpper(string(s[i+1]))
-			i = i + 1
-		} else if rune(s[i]) == 42 {
-			nCapt = nCapt + string(rune(42))
-			nCapt = nCapt + ToUpper(string(s[i+1]))
-			i = i + 1
-		} else if rune(s[i]) == 58 {
-			nCapt = nCapt + string(rune(58))
-			nCapt = nCapt + ToUpper(string(s[i+1]))
-			i = i + 1
-		} else if rune(s[i]) == 59 {
-			nCapt = nCapt + string(rune(59))
-			nCapt = nCapt + ToUpper(string(s[i+1]))
-			i = i + 1
-		} else if rune(s[i]) == 95 {
-			nCapt = nCapt + string(rune(95))
-			nCapt = nCapt + ToUpper(string(s[i+1]))
-			i = i + 1
-		} else {
-			nCapt = nCapt + ToLower(string(s[i]))
+	runes := []rune(s)
+	taille := len(runes)
+	if IsRuneLowerCase(runes[0]) {
+		runes[0] -= 32
+	}
+	for i := 1; i < taille; i++ {
+		if IsRuneUpperCase(runes[i]) {
+			if IsRuneUpperCase(runes[i-1]) ||
+				IsRuneLowerCase(runes[i-1]) ||
+				IsRuneDigit(runes[i-1]) {
+				runes[i] += 32
+			}
+		} else if IsRuneLowerCase(runes[i]) {
+			if IsRuneUpperCase(runes[i-1]) ||
+				IsRuneLowerCase(runes[i-1]) ||
+				IsRuneDigit(runes[i-1]) {
+				continue
+			} else {
+				runes[i] -= 32
+			}
 		}
 	}
-	return nCapt
+
+	return string(runes)
+}
+
+func IsRuneDigit(r rune) bool {
+	return r >= '0' && r <= '9'
 }
