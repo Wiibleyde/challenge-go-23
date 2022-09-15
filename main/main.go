@@ -6,5 +6,5 @@ import (
 )
 
 func main() {
-	fmt.Println(student.ToUpper("Hello! How are you?"))
+	fmt.Println(student.ToLower("Hello! How are you?"))
 }
