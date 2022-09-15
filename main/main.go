@@ -1,9 +1,10 @@
 package main
 
 import (
+	"fmt"
 	"student"
 )
 
 func main() {
-	print(student.Sqrt(-122919))
+	fmt.Println(student.Sqrt(-122919))
 }
