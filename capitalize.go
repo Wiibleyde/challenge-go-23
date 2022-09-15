@@ -19,8 +19,16 @@ func Capitalize(s string) string {
 			nCapt = nCapt + string(rune(58))
 			nCapt = nCapt + ToUpper(string(s[i+1]))
 			i = i + 1
+		} else if rune(s[i]) == 59 {
+			nCapt = nCapt + string(rune(59))
+			nCapt = nCapt + ToUpper(string(s[i+1]))
+			i = i + 1
+		} else if rune(s[i]) == 95 {
+			nCapt = nCapt + string(rune(95))
+			nCapt = nCapt + ToUpper(string(s[i+1]))
+			i = i + 1
 		} else {
-			nCapt = nCapt + string(s[i])
+			nCapt = nCapt + ToLower(string(s[i]))
 		}
 	}
 	return nCapt
