@@ -16,16 +16,16 @@ func TrimAtoi(s string) int {
 		}
 	}
 
-	nm := 0
+	nb := 0
 
 	for _, ch := range s {
 		if containsIn0to9(ch) {
-			nm = nm*10 + charToInt(ch)
+			nb = nb*10 + charToInt(ch)
 		}
 	}
 
 	if negati {
-		nm *= -1
+		nb *= -1
 	}
-	return nm
+	return nb
 }
