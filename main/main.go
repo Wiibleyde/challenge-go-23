@@ -6,7 +6,7 @@ import (
 )
 
 func main() {
-	s := "Hello 78 World!    4455 /"
-	nb := student.AlphaCount(s)
-	fmt.Println(nb)
+	fmt.Println(student.Index("Hello!", "l"))
+	fmt.Println(student.Index("Salut!", "alu"))
+	fmt.Println(student.Index("Ola!", "hOl"))
 }
