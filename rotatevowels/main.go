@@ -12,6 +12,7 @@ func check(x rune) bool {
 	}
 	return false
 }
+
 func main() {
 	arg := os.Args[1:]
 	table := []rune{}
