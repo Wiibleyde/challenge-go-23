@@ -14,7 +14,6 @@ func main() {
 	}
 	if taille >= 1 {
 		if table[0] == "--upper" {
-			z01.PrintRune(' ')
 			for i := 1; i <= taille; i++ {
 				nb := 0
 				for _, w := range table[i] {
