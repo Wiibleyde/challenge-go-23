@@ -12,9 +12,9 @@ func main() {
 	for i := range table {
 		taille = i
 	}
-	statTaille:=false
+	statTaille := false
 	if taille >= 1 {
-		statTaille=true
+		statTaille = true
 		if table[0] == "--upper" {
 			for i := 1; i <= taille; i++ {
 				nb := 0
