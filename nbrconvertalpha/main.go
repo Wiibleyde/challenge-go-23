@@ -7,18 +7,18 @@ import (
 )
 
 func main() {
-	table := os.Args[1:]
+	args := os.Args[1:]
 	taille := 0
-	for i := range table {
+	for i := range args {
 		taille = i
 	}
 	statTaille := false
 	if taille >= 1 {
 		statTaille = true
-		if table[0] == "--upper" {
+		if args[0] == "--upper" {
 			for i := 1; i <= taille; i++ {
 				nb := 0
-				for _, w := range table[i] {
+				for _, w := range args[i] {
 					nb = nb*10 + int(w-'0')
 				}
 				if nb >= 1 && nb <= 26 {
@@ -30,7 +30,7 @@ func main() {
 		} else {
 			for i := 0; i <= taille; i++ {
 				numb := 0
-				for _, w := range table[i] {
+				for _, w := range args[i] {
 					numb = numb*10 + int(w-'0')
 				}
 				if numb >= 1 && numb <= 26 {
