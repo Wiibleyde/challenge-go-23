@@ -39,4 +39,7 @@ func main() {
 			}
 		}
 	}
+	if taille <= {
+		z01.PrintRune('\n')
+	}
 }
