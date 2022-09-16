@@ -9,10 +9,10 @@ import (
 func main() {
 	table := os.Args[1:]
 	taille := 0
-	saveTaille:=0
+	saveTaille := 0
 	for i := range table {
 		taille = i
-		saveTaille=i
+		saveTaille = i
 	}
 	if taille >= 1 {
 		if table[0] == "--upper" {
