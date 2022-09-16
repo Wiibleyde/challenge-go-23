@@ -40,5 +40,4 @@ func main() {
 	for i := 0; i < len(result); i++ {
 		z01.PrintRune(rune(result[i]))
 	}
-
 }
