@@ -11,8 +11,7 @@ func main() {
 	for _, ele := range args[1:] {
 		for _, ele2 := range ele {
 			z01.PrintRune(ele2)
-			z01.PrintRune('\n')
 		}
+		z01.PrintRune('\n')
 	}
-	z01.PrintRune('\n')
 }
