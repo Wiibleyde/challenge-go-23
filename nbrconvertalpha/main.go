@@ -7,33 +7,33 @@ import (
 )
 
 func main() {
-	my_arr := os.Args[1:]
-	ln := 0
-	for i := range my_arr {
-		ln = i
+	table := os.Args[1:]
+	taille := 0
+	for i := range table {
+		taille = i
 	}
-	if ln >= 1 {
-		if my_arr[0] == "--upper" {
+	if taille >= 1 {
+		if table[0] == "--upper" {
 			z01.PrintRune(' ')
-			for i := 1; i <= ln; i++ {
-				num := 0
-				for _, w := range my_arr[i] {
-					num = num*10 + int(w-'0')
+			for i := 1; i <= taille; i++ {
+				nb := 0
+				for _, w := range table[i] {
+					nb = nb*10 + int(w-'0')
 				}
-				if num >= 1 && num <= 26 {
-					z01.PrintRune('A' + rune(num-1))
+				if nb >= 1 && nb <= 26 {
+					z01.PrintRune('A' + rune(nb-1))
 				} else {
 					z01.PrintRune(' ')
 				}
 			}
 		} else {
-			for i := 0; i <= ln; i++ {
-				myNum := 0
-				for _, w := range my_arr[i] {
-					myNum = myNum*10 + int(w-'0')
+			for i := 0; i <= taille; i++ {
+				numb := 0
+				for _, w := range table[i] {
+					numb = numb*10 + int(w-'0')
 				}
-				if myNum >= 1 && myNum <= 26 {
-					z01.PrintRune('a' + rune(myNum-1))
+				if numb >= 1 && numb <= 26 {
+					z01.PrintRune('a' + rune(numb-1))
 				} else {
 					z01.PrintRune(' ')
 				}
