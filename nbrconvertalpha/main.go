@@ -9,8 +9,10 @@ import (
 func main() {
 	table := os.Args[1:]
 	taille := 0
+	saveTaille:=0
 	for i := range table {
 		taille = i
+		saveTaille=i
 	}
 	if taille >= 1 {
 		if table[0] == "--upper" {
@@ -39,7 +41,7 @@ func main() {
 			}
 		}
 	}
-	if taille <= 0 {
+	if saveTaille <= 0 {
 		z01.PrintRune('\n')
 	}
 }
