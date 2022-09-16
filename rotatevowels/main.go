@@ -36,8 +36,8 @@ func main() {
 		} else {
 			result = result + string(args[i])
 		}
-		z01.PrintRune('\n')
 	}
+	z01.PrintRune('\n')
 	for i := 0; i < len(result); i++ {
 		z01.PrintRune(rune(result[i]))
 	}
