@@ -11,7 +11,6 @@ func main() {
 		z01.PrintRune('\n')
 		return
 	}
-
 	for _, s := range os.Args[1:] {
 		nm := atoi(s)
 		if nm <= 26 && nm > 0 {
@@ -20,9 +19,7 @@ func main() {
 			} else {
 				z01.PrintRune(rune(nm + 96))
 			}
-		} else {
-			z01.PrintRune(' ')
-		}
+		} 
 	}
 	z01.PrintRune('\n')
 }
@@ -85,6 +82,5 @@ func containsIn0to9(ch rune) bool {
 			return true
 		}
 	}
-
 	return false
 }
