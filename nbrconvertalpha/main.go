@@ -19,7 +19,7 @@ func main() {
 			} else {
 				z01.PrintRune(rune(nm + 96))
 			}
-		} 
+		}
 	}
 	z01.PrintRune('\n')
 }
