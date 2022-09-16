@@ -8,7 +8,7 @@ import (
 )
 
 func order(s string) {
-	var a []int
+	var a [5000]int
 	for _, c := range s {
 		a[int(c)]++
 	}
