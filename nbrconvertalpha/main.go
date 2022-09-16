@@ -40,7 +40,7 @@ func main() {
 			}
 		}
 	}
-	if saveTaille <= 1 {
+	if saveTaille < 1 {
 		z01.PrintRune('\n')
 	}
 }
