@@ -9,11 +9,12 @@ import (
 func main() {
 	table := os.Args[1:]
 	taille := 0
-	saveTaille := len(table)
 	for i := range table {
 		taille = i
 	}
+	statTaille:=false
 	if taille >= 1 {
+		statTaille=true
 		if table[0] == "--upper" {
 			for i := 1; i <= taille; i++ {
 				nb := 0
@@ -40,7 +41,7 @@ func main() {
 			}
 		}
 	}
-	if saveTaille < 1 {
+	if statTaille {
 		z01.PrintRune('\n')
 	}
 }
