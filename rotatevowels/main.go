@@ -8,9 +8,9 @@ import (
 
 func main() {
 	arguments := os.Args[1:]
-	args:=""
-	vowels:=[]string{}
-	result:=""
+	args := ""
+	vowels := []string{}
+	result := ""
 	if len(arguments) < 1 {
 		z01.PrintRune('\n')
 	}
