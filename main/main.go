@@ -6,5 +6,6 @@ import (
 )
 
 func main() {
-	fmt.Printf("%#v\n", student.SplitWhiteSpaces("Hello how are you?"))
+	s := "HelloHAhowHAareHAyou?"
+	fmt.Printf("%#v\n", student.Split(s, "HA"))
 }
