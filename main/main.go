@@ -1,11 +1,10 @@
 package main
 
 import (
-	"fmt"
 	"student"
 )
 
 func main() {
-	s := "HelloHAhowHAareHAyou?"
-	fmt.Printf("%#v\n", student.Split(s, "HA"))
+	a := student.SplitWhiteSpaces("Hello how are you?")
+	student.PrintWordsTables(a)
 }
