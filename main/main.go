@@ -2,9 +2,10 @@ package main
 
 import (
 	"student"
+	"fmt"
 )
 
 func main() {
-	a := student.SplitWhiteSpaces("Hello how are you?")
-	student.PrintWordsTables(a)
+	result := student.ConvertBase("101011", "01", "0123456789")
+	fmt.Println(result)
 }
