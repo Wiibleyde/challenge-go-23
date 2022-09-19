@@ -6,5 +6,5 @@ import (
 )
 
 func main() {
-	fmt.Println(student.AppendRange(5,10))
+	fmt.Println(student.AppendRange(5, 10))
 }
