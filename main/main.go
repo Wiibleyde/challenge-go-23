@@ -6,5 +6,6 @@ import (
 )
 
 func main() {
-	fmt.Println(student.MakeRange(5, 10))
+	test := []string{"Hello", "how", "are", "you?"}
+	fmt.Println(student.ConcatParams(test))
 }
