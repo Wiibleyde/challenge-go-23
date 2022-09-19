@@ -6,6 +6,5 @@ import (
 )
 
 func main() {
-	test := []string{"Hello", "how", "are", "you?"}
-	fmt.Println(student.ConcatParams(test))
+	fmt.Printf("%#v\n", student.SplitWhiteSpaces("Hello how are you?"))
 }
