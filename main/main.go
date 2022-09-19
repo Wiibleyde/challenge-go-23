@@ -6,6 +6,6 @@ import (
 )
 
 func main() {
-	result := student.ConvertBase("101011", "01", "0123456789")
+	result := student.ConvertBase("1010110", "01", "0123456789")
 	fmt.Println(result)
 }
