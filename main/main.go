@@ -6,6 +6,6 @@ import (
 )
 
 func main() {
-	result := student.MakeRange(2,5)
+	result := student.MakeRange(2, 5)
 	fmt.Println(result)
 }
