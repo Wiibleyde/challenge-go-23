@@ -6,6 +6,5 @@ import (
 )
 
 func main() {
-	result := student.MakeRange(2, 5)
-	fmt.Println(result)
+	fmt.Println(student.SplitWhiteSpaces("lmqsdjqksjd qsdj qsjdlqisjd jqsdlk qjskldjqlskdjqlskjdlqsjd lqskdjl"))
 }
