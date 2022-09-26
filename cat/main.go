@@ -9,8 +9,8 @@ import (
 
 func main() {
 	args := os.Args[1:]
-	if len(args) < 1 {
-		printStr("ERROR: open asd: no such file or directory")
+	if 0 == len(args) {
+		printStr("File name missing")
 	} else {
 		for _, s := range os.Args[1:] {
 			file, err := os.Open(s)
@@ -23,8 +23,7 @@ func main() {
 					printStr(err.Error())
 					break
 				} else {
-					printStr(string(data))
-					z01.PrintRune('\n')
+					printStr(convertBytesToString(data))
 				}
 			}
 		}
@@ -35,4 +34,9 @@ func printStr(s string) {
 	for _, r := range s {
 		z01.PrintRune(r)
 	}
+	z01.PrintRune('\n')
+}
+
+func convertBytesToString(data []byte) string {
+	return string(data[:])
 }
