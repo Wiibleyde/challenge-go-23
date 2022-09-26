@@ -26,7 +26,7 @@ func main() {
 	IntY := Itoa(points.x)
 	IntX := Itoa(points.y)
 
-	printStr("x = " + string(IntY) + ", y = " + string(IntX) + "\n")
+	printStr("x = " + string(IntY) + ", y = " + string(IntX))
 }
 
 func Itoa(n int) string {
