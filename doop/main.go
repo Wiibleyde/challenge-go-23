@@ -7,7 +7,7 @@ import (
 func main() {
 	args := os.Args[1:]
 	if len(args) == 3 {
-		if containsIn0to9(rune(args[0][0])) && containsIn0to9(rune(args[2][0])) {
+		if StrLen(args[0]) > 0 && StrLen(args[2]) > 0 && (args[1] == "+" || args[1] == "-" || args[1] == "*" || args[1] == "/" || args[1] == "%") {
 			if args[1] == "+" {
 				os.Stdout.WriteString(Itoa(sum(Atoi(args[0]), Atoi(args[2]))))
 				os.Stdout.WriteString("\n")
