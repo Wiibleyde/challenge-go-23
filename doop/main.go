@@ -150,9 +150,7 @@ func isSigne(str string, arr []string) bool {
 func main() {
 	signe := []string{"+", "*", "-", "/", "%"}
 	args := os.Args[1:]
-	if len(args) != 3 {
-
-	} else {
+	if len(args) == 3 {
 		if isSigne(args[1], signe) {
 			if containsIn0to9(rune(args[0][0])) && (args[1] == "+" || args[1] == "-" || args[1] == "*" || args[1] == "/" || args[1] == "%") && containsIn0to9(rune(args[2][0])) {
 				nb1 := Atoi(args[0])
@@ -184,5 +182,4 @@ func main() {
 			os.Stdout.WriteString("0")
 		}
 	}
-
 }
