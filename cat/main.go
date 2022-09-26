@@ -17,7 +17,7 @@ func main() {
 				os.Exit(1)
 				break
 			} else {
-				printStr(convertBytesToString(data))
+				printStr(string(data))
 			}
 		}
 	}
@@ -29,6 +29,6 @@ func printStr(s string) {
 	}
 }
 
-func convertBytesToString(data []byte) string {
-	return string(data[:])
-}
+// func convertBytesToString(data []byte) string {
+// 	return string(data[:])
+// }
