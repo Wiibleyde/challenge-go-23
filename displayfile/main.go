@@ -18,5 +18,5 @@ func main() {
 
 func printFile(filename string) {
 	content, _ := os.ReadFile(filename)
-	fmt.Println(string(content))
+	fmt.Print(string(content))
 }
