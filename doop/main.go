@@ -95,6 +95,27 @@ func containsIn0to9(ch rune) bool {
 	return false
 }
 
+func checkIfInt(str string) bool {
+	for _, ch := range str {
+		if !containsIn0to9(ch) {
+			return false
+		}
+	}
+	return true
+}
+
+func checkIfInt(num int) bool {
+	if num < 0 {
+		num *= -1
+	}
+	for i := 0; i < 10; i++ {
+		if num == i {
+			return true
+		}
+	}
+	return false
+}
+
 // func sum(a, b int) int {
 // 	return a + b
 // }
@@ -153,7 +174,7 @@ func main() {
 	if len(args) == 3 {
 		if isSigne(args[1], signe) {
 			// check if the first argument is a number and the second to, numbers can be negative or positive
-			if containsIn0to9(rune(args[0][0])) && containsIn0to9(rune(args[2][0])) {
+			if checkIfInt(args[0]) && checkIfInt(args[2]) {
 				nb1 := Atoi(args[0])
 				nb2 := Atoi(args[2])
 				switch args[1] {
