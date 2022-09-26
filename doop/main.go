@@ -138,14 +138,6 @@ func Itoa(n int) string {
 	return res
 }
 
-package main
-
-import (
-	"fmt"
-	"os"
-	"strconv"
-)
-
 func isSigne(str string, arr[]string) bool{
 	for _,v := range arr{
 		if str == v{
