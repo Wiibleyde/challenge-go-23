@@ -9,19 +9,16 @@ import (
 
 func main() {
 	args := os.Args[1:]
-	errorCount := 0
 	if len(args) != 0 {
 		for _, s := range os.Args[1:] {
 			data, err := ioutil.ReadFile(s)
 			if err != nil {
-				printStr("ERROR: " + err.Error())
+				printStr("ERROR: " + err.Error() + "\n")
+				os.Exit(1)
 				break
 			} else {
 				printStr(convertBytesToString(data))
 			}
-		}
-		if errorCount > 0 {
-			os.Exit(1)
 		}
 	}
 }
