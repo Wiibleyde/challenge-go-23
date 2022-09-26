@@ -9,6 +9,7 @@ import (
 
 func main() {
 	args := os.Args[1:]
+	errorCount := 0
 	if 0 == len(args) {
 		printStr("File name missing")
 	} else {
@@ -17,6 +18,7 @@ func main() {
 			if err != nil {
 				printStr("ERROR: " + err.Error())
 				printStr("\n")
+				errorCount++
 				break
 			} else {
 				data, err := ioutil.ReadAll(file)
@@ -28,7 +30,9 @@ func main() {
 				}
 			}
 		}
-		os.Exit(1)
+		if errorCount > 0 {
+			os.Exit(1)
+		}
 	}
 }
 
