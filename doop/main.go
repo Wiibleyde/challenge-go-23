@@ -19,6 +19,7 @@ func main() {
 			} else if args[1] == "%" {
 				os.Stdout.WriteString(modulo(Atoi(args[0]), Atoi(args[2])))
 			}
+			os.Stdout.WriteString("\n")
 		}
 	}
 }
