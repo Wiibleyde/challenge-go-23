@@ -1,30 +1,31 @@
 package main
 
 import (
-    "os"
-    "io/ioutil"
+	"io/ioutil"
+	"os"
+
 	"github.com/01-edu/z01"
 )
 
-func main(){
+func main() {
 	args := os.Args[1:]
-	if len(args)<1 {
+	if len(args) < 1 {
 		printStr("Error with args")
-	}else{
-		for _,s:= range os.Args[1:] {
+	} else {
+		for _, s := range os.Args[1:] {
 			file, err := os.Open(s)
-    			if err != nil {
-    			    printStr(err.Error())
-			    break
-    			}else{
-        			data, err := ioutil.ReadAll(file)
-        			if err != nil {
-                 			printStr(err.Error())
+			if err != nil {
+				printStr(err.Error())
+				break
+			} else {
+				data, err := ioutil.ReadAll(file)
+				if err != nil {
+					printStr(err.Error())
 					break
-         			}else{
-         				printStr(string(data))
+				} else {
+					printStr(string(data))
 				}
-    		}
+			}
 		}
 	}
 }
