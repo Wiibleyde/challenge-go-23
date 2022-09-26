@@ -152,11 +152,11 @@ func main(){
 	args := os.Args[1:]
 	if len(args) != 3 {
 
-	}else{
+	} else {
 		if isSigne(args[1], signe){
-			nb1, err := Atoi(args[0])
-			nb2, err2 := Atoi(args[2])
-			if err == nil && err2 == nil{
+			if containsIn0to9(rune(args[0][0])) && (args[1] == "+" || args[1] == "-" || args[1] == "*" || args[1] == "/" || args[1] == "%") && containsIn0to9(rune(args[2][0])) {
+				nb1 := Atoi(args[0])
+				nb2 := Atoi(args[2])
 				switch args[1] {
 				case "+":
 					os.Stdout.WriteString(Itoa(nb1 + nb2))
@@ -164,25 +164,24 @@ func main(){
 					os.Stdout.WriteString(Itoa(nb1 - nb2))
 				case "/":
 					if nb2 == 0 {
-						os.Stdout.WriteString(Itoa("No division by 0")
-					}else{
+						os.Stdout.WriteString("No division by 0")
+					} else {
 						os.Stdout.WriteString(Itoa(nb1 / nb2))
 					}
 				case "%":
 					if nb2 == 0 {
-						os.Stdout.WriteString(Itoa("No Modulo by 0"))
-					}else{
+						os.Stdout.WriteString("No Modulo by 0")
+					} else {
 						os.Stdout.WriteString(Itoa(nb1 % nb2))
 					}
 				case "*":
 					os.Stdout.WriteString(Itoa(nb1 * nb2))
-
 				}
-			}else{
-				os.Stdout.WriteString(Itoa("1"))
+			} else {
+				os.Stdout.WriteString("1")
 			}
-		}else{
-			os.Stdout.WriteString(Itoa("0"))
+		} else {
+			os.Stdout.WriteString("0")
 		}
 	}
 	
