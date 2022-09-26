@@ -107,10 +107,17 @@ func Itoa(n int) string {
 	if n == 0 {
 		return "0"
 	}
+	negative:=false
+	if n < 0 {
+		negative= true
+	}
 	var res string
 	for n != 0 {
 		res = string(n%10+48) + res
 		n /= 10
+	}
+	if negative {
+		return "-"+res
 	}
 	return res
 }
