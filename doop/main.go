@@ -7,7 +7,8 @@ import (
 func main() {
 	args := os.Args[1:]
 	if len(args) == 3 {
-		if StrLen(args[0]) > 0 && StrLen(args[2]) > 0 && (args[1] == "+" || args[1] == "-" || args[1] == "*" || args[1] == "/" || args[1] == "%") {
+		// check if the first argument is a number and the second to positive or negative
+		if containsIn0to9(rune(args[0][0])) && (args[1] == "+" || args[1] == "-" || args[1] == "*" || args[1] == "/" || args[1] == "%") && containsIn0to9(rune(args[2][0])) {
 			if args[1] == "+" {
 				os.Stdout.WriteString(Itoa(sum(Atoi(args[0]), Atoi(args[2]))))
 				os.Stdout.WriteString("\n")
