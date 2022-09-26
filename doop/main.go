@@ -19,11 +19,19 @@ func main() {
 				os.Stdout.WriteString(Itoa(multiply(Atoi(args[0]), Atoi(args[2]))))
 				os.Stdout.WriteString("\n")
 			} else if args[1] == "/" {
-				os.Stdout.WriteString(Itoa(divide(Atoi(args[0]), Atoi(args[2]))))
-				os.Stdout.WriteString("\n")
+				if Atoi(args[2]) == 0 {
+					os.Stdout.WriteString("No division by 0 ")
+				} else {
+					os.Stdout.WriteString(Itoa(divide(Atoi(args[0]), Atoi(args[2]))))
+					os.Stdout.WriteString("\n")
+				}
 			} else if args[1] == "%" {
-				os.Stdout.WriteString(modulo(Atoi(args[0]), Atoi(args[2])))
-				os.Stdout.WriteString("\n")
+				if Atoi(args[2]) == 0 {
+					os.Stdout.WriteString("No modulo by 0")
+				} else {
+					os.Stdout.WriteString(modulo(Atoi(args[0]), Atoi(args[2])))
+					os.Stdout.WriteString("\n")
+				}
 			}
 		}
 	}
@@ -98,9 +106,6 @@ func multiply(a, b int) int {
 }
 
 func divide(a, b int) int {
-	if b == 0 {
-		os.Stdout.WriteString("No division by 0")
-	}
 	return a / b
 }
 
