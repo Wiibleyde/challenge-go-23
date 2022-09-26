@@ -110,7 +110,7 @@ func Itoa(n int) string {
 	negative := false
 	if n < 0 {
 		negative = true
-		n=n*-1
+		n = n * -1
 	}
 	var res string
 	for n != 0 {
