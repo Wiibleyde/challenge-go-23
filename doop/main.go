@@ -152,7 +152,8 @@ func main() {
 	args := os.Args[1:]
 	if len(args) == 3 {
 		if isSigne(args[1], signe) {
-			if containsIn0to9(rune(args[0][0])) && (args[1] == "+" || args[1] == "-" || args[1] == "*" || args[1] == "/" || args[1] == "%") && containsIn0to9(rune(args[2][0])) {
+			// check if the first argument is a number and the second to, positive or negative
+			if containsIn0to9(rune(args[0][0])) && containsIn0to9(rune(args[2][0])) {
 				nb1 := Atoi(args[0])
 				nb2 := Atoi(args[2])
 				switch args[1] {
