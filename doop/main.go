@@ -80,27 +80,21 @@ func Itoa(n int) string {
 	return res
 }
 
-
 func main() {
 	args := os.Args[1:]
 	a1 := 0
 	a2 := 0
-
 	if len(args) != 3 {
 		return
 	}
-
 	if !(IsNumeric(args[0]) && IsNumeric(args[2])) {
 		return
 	}
-
 	a1 = Atoi(args[0])
 	a2 = Atoi(args[2])
-
 	if a1 >= 9223372036800000000 || a2 >= 9223372036800000000 {
 		return
 	}
-
 	switch args[1] {
 	case "*":
 		Display(a1 * a2)
