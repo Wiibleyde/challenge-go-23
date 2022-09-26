@@ -97,6 +97,9 @@ func multiply(a, b int) int {
 }
 
 func divide(a, b int) int {
+	if b == 0 {
+		os.Stdout.WriteString("No division by 0")
+	}
 	return a / b
 }
 
