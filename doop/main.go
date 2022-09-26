@@ -181,5 +181,6 @@ func main() {
 		} else {
 			os.Stdout.WriteString("0")
 		}
+		os.Stdout.WriteString("\n")
 	}
 }
