@@ -7,19 +7,23 @@ import (
 func main() {
 	args := os.Args[1:]
 	if len(args) == 3 {
-		if containsIn0to9(rune(args[0][0])) && containsIn0to9(rune(args[2][0])) {
+		if containsIn0to9(rune(args[0][0])) && containsIn0to9(rune(args[2][0])){
 			if args[1] == "+" {
 				os.Stdout.WriteString(Itoa(sum(Atoi(args[0]), Atoi(args[2]))))
+				os.Stdout.WriteString("\n")
 			} else if args[1] == "-" {
 				os.Stdout.WriteString(Itoa(substract(Atoi(args[0]), Atoi(args[2]))))
+				os.Stdout.WriteString("\n")
 			} else if args[1] == "*" {
 				os.Stdout.WriteString(Itoa(multiply(Atoi(args[0]), Atoi(args[2]))))
+				os.Stdout.WriteString("\n")
 			} else if args[1] == "/" {
 				os.Stdout.WriteString(Itoa(divide(Atoi(args[0]), Atoi(args[2]))))
+				os.Stdout.WriteString("\n")
 			} else if args[1] == "%" {
 				os.Stdout.WriteString(modulo(Atoi(args[0]), Atoi(args[2])))
+				os.Stdout.WriteString("\n")
 			}
-			os.Stdout.WriteString("\n")
 		}
 	}
 }
