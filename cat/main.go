@@ -16,9 +16,8 @@ func main() {
 				printStr("ERROR: " + err.Error() + "\n")
 				os.Exit(1)
 				break
-			} else {
-				printStr(string(data))
-			}
+			} 
+			printStr(string(data))
 		}
 	}
 }
