@@ -20,7 +20,8 @@ func main() {
 				os.Stdout.WriteString("\n")
 			} else if args[1] == "/" {
 				if Atoi(args[2]) == 0 {
-					os.Stdout.WriteString("No division by 0 ")
+					os.Stdout.WriteString("No division by 0")
+					os.Stdout.WriteString("\n")
 				} else {
 					os.Stdout.WriteString(Itoa(divide(Atoi(args[0]), Atoi(args[2]))))
 					os.Stdout.WriteString("\n")
@@ -28,6 +29,7 @@ func main() {
 			} else if args[1] == "%" {
 				if Atoi(args[2]) == 0 {
 					os.Stdout.WriteString("No modulo by 0")
+					os.Stdout.WriteString("\n")
 				} else {
 					os.Stdout.WriteString(modulo(Atoi(args[0]), Atoi(args[2])))
 					os.Stdout.WriteString("\n")
