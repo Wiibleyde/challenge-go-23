@@ -12,20 +12,12 @@ func main() {
 	errorCount := 0
 	if len(args) != 0 {
 		for _, s := range os.Args[1:] {
-			file, err := os.Open(s)
+			data, err := ioutil.ReadFile(s)
 			if err != nil {
 				printStr("ERROR: " + err.Error())
-				printStr("\n")
-				errorCount++
 				break
 			} else {
-				data, err := ioutil.ReadAll(file)
-				if err != nil {
-					printStr(err.Error())
-					break
-				} else {
-					printStr(convertBytesToString(data))
-				}
+				printStr(convertBytesToString(data))
 			}
 		}
 		if errorCount > 0 {
@@ -38,7 +30,6 @@ func printStr(s string) {
 	for _, r := range s {
 		z01.PrintRune(r)
 	}
-	// z01.PrintRune('\n')
 }
 
 func convertBytesToString(data []byte) string {
