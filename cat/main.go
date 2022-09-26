@@ -10,9 +10,7 @@ import (
 func main() {
 	args := os.Args[1:]
 	errorCount := 0
-	if 0 == len(args) {
-		printStr("File name missing")
-	} else {
+	if len(args) != 0 {
 		for _, s := range os.Args[1:] {
 			file, err := os.Open(s)
 			if err != nil {
