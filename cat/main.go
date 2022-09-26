@@ -1,6 +1,7 @@
 package main
 
 import (
+	"io"
 	"io/ioutil"
 	"os"
 
@@ -19,6 +20,8 @@ func main() {
 			}
 			printStr(string(data))
 		}
+	} else {
+		io.Copy(os.Stdout, os.Stdin)
 	}
 }
 
