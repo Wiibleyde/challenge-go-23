@@ -138,22 +138,22 @@ func Itoa(n int) string {
 	return res
 }
 
-func isSigne(str string, arr[]string) bool{
-	for _,v := range arr{
-		if str == v{
+func isSigne(str string, arr []string) bool {
+	for _, v := range arr {
+		if str == v {
 			return true
 		}
 	}
 	return false
 }
 
-func main(){
-	signe := []string{"+","*","-","/","%"}
+func main() {
+	signe := []string{"+", "*", "-", "/", "%"}
 	args := os.Args[1:]
 	if len(args) != 3 {
 
 	} else {
-		if isSigne(args[1], signe){
+		if isSigne(args[1], signe) {
 			if containsIn0to9(rune(args[0][0])) && (args[1] == "+" || args[1] == "-" || args[1] == "*" || args[1] == "/" || args[1] == "%") && containsIn0to9(rune(args[2][0])) {
 				nb1 := Atoi(args[0])
 				nb2 := Atoi(args[2])
@@ -184,5 +184,5 @@ func main(){
 			os.Stdout.WriteString("0")
 		}
 	}
-	
+
 }
