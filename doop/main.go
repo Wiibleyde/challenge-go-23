@@ -4,41 +4,6 @@ import (
 	"os"
 )
 
-// func main() {
-// 	args := os.Args[1:]
-// 	if len(args) == 3 {
-// 		// check if the first argument is a number and the second to positive or negative
-// 		if containsIn0to9(rune(args[0][0])) && (args[1] == "+" || args[1] == "-" || args[1] == "*" || args[1] == "/" || args[1] == "%") && containsIn0to9(rune(args[2][0])) {
-// 			if args[1] == "+" {
-// 				os.Stdout.WriteString(Itoa(sum(Atoi(args[0]), Atoi(args[2]))))
-// 				os.Stdout.WriteString("\n")
-// 			} else if args[1] == "-" {
-// 				os.Stdout.WriteString(Itoa(substract(Atoi(args[0]), Atoi(args[2]))))
-// 				os.Stdout.WriteString("\n")
-// 			} else if args[1] == "*" {
-// 				os.Stdout.WriteString(Itoa(multiply(Atoi(args[0]), Atoi(args[2]))))
-// 				os.Stdout.WriteString("\n")
-// 			} else if args[1] == "/" {
-// 				if Atoi(args[2]) == 0 {
-// 					os.Stdout.WriteString("No division by 0")
-// 					os.Stdout.WriteString("\n")
-// 				} else {
-// 					os.Stdout.WriteString(Itoa(divide(Atoi(args[0]), Atoi(args[2]))))
-// 					os.Stdout.WriteString("\n")
-// 				}
-// 			} else if args[1] == "%" {
-// 				if Atoi(args[2]) == 0 {
-// 					os.Stdout.WriteString("No modulo by 0")
-// 					os.Stdout.WriteString("\n")
-// 				} else {
-// 					os.Stdout.WriteString(modulo(Atoi(args[0]), Atoi(args[2])))
-// 					os.Stdout.WriteString("\n")
-// 				}
-// 			}
-// 		}
-// 	}
-// }
-
 func Atoi(s string) int {
 	if StrLen(s) == 0 {
 		return 0
@@ -95,50 +60,6 @@ func containsIn0to9(ch rune) bool {
 	return false
 }
 
-func checkIfInt(str string) bool {
-	for _, ch := range str {
-		if !containsIn0to9(ch) {
-			return false
-		}
-	}
-	return true
-}
-
-func checkIfInt(num int) bool {
-	if num < 0 {
-		num *= -1
-	}
-	for i := 0; i < 10; i++ {
-		if num == i {
-			return true
-		}
-	}
-	return false
-}
-
-// func sum(a, b int) int {
-// 	return a + b
-// }
-
-// func substract(a, b int) int {
-// 	return a - b
-// }
-
-// func multiply(a, b int) int {
-// 	return a * b
-// }
-
-// func divide(a, b int) int {
-// 	return a / b
-// }
-
-// func modulo(a, b int) string {
-// 	if a == 0 || b == 0 {
-// 		os.Stdout.WriteString("No modulo by 0")
-// 	}
-// 	return Itoa(a % b)
-// }
-
 func Itoa(n int) string {
 	if n == 0 {
 		return "0"
@@ -159,50 +80,65 @@ func Itoa(n int) string {
 	return res
 }
 
-func isSigne(str string, arr []string) bool {
-	for _, v := range arr {
-		if str == v {
-			return true
-		}
-	}
-	return false
-}
 
 func main() {
-	signe := []string{"+", "*", "-", "/", "%"}
 	args := os.Args[1:]
-	if len(args) == 3 {
-		if isSigne(args[1], signe) {
-			// check if the first argument is a number and the second to, numbers can be negative or positive
-			if checkIfInt(args[0]) && checkIfInt(args[2]) {
-				nb1 := Atoi(args[0])
-				nb2 := Atoi(args[2])
-				switch args[1] {
-				case "+":
-					os.Stdout.WriteString(Itoa(nb1 + nb2))
-				case "-":
-					os.Stdout.WriteString(Itoa(nb1 - nb2))
-				case "/":
-					if nb2 == 0 {
-						os.Stdout.WriteString("No division by 0")
-					} else {
-						os.Stdout.WriteString(Itoa(nb1 / nb2))
-					}
-				case "%":
-					if nb2 == 0 {
-						os.Stdout.WriteString("No Modulo by 0")
-					} else {
-						os.Stdout.WriteString(Itoa(nb1 % nb2))
-					}
-				case "*":
-					os.Stdout.WriteString(Itoa(nb1 * nb2))
-				}
-			} else {
-				os.Stdout.WriteString("1")
-			}
-		} else {
-			os.Stdout.WriteString("0")
-		}
-		os.Stdout.WriteString("\n")
+	a1 := 0
+	a2 := 0
+
+	if len(args) != 3 {
+		return
 	}
+
+	if !(IsNumeric(args[0]) && IsNumeric(args[2])) {
+		return
+	}
+
+	a1 = Atoi(args[0])
+	a2 = Atoi(args[2])
+
+	if a1 >= 9223372036800000000 || a2 >= 9223372036800000000 {
+		return
+	}
+
+	switch args[1] {
+	case "*":
+		Display(a1 * a2)
+	case "/":
+		if a2 == 0 {
+			os.Stdout.WriteString("No division by 0" + "\n")
+			return
+		}
+		Display(a1 / a2)
+	case "%":
+		if a2 == 0 {
+			os.Stdout.WriteString("No modulo by 0" + "\n")
+			return
+		}
+		Display(a1 % a2)
+	case "+":
+		Display(a1 + a2)
+	case "-":
+		Display(a1 - a2)
+	}
+}
+
+func Display(i int) {
+	if i >= 9223372036854775806 {
+		return
+	}
+	str := Itoa(i)
+	if str == "-" || str == "" || str == " " {
+		return
+	}
+	os.Stdout.WriteString(str + "\n")
+}
+
+func IsNumeric(s string) bool {
+	for _, c := range s {
+		if !(c >= 48 && c <= 57) && c != '-' {
+			return false
+		}
+	}
+	return true
 }
