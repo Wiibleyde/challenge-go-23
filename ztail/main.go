@@ -52,7 +52,7 @@ func main() {
 		read := make([]byte, int(nbytes))
 		_, er := fi.ReadAt(read, fileSize(fi)-int64(nbytes))
 		if er != nil {
-			fmt.Println(er.Error())
+			os.Exit(1)
 		}
 		for _, c := range read {
 			fmt.Print(c)
