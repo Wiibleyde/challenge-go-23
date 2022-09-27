@@ -35,25 +35,42 @@ func fileSize(fi *os.File) int64 {
 }
 
 func main() {
-	args := os.Args[1:]
-	nbytes, files := numberOfBytes(args)
-	if len(files) == 0 {
-		files = append(files, "")
+	n := len(os.Args)
+	if n < 4 {
+		fmt.Println("Not enough arguments")
+		os.Exit(1)
 	}
-	for _, s := range files {
-		fi, err := os.Open(s)
+	nbytes, files := numberOfBytes(os.Args[1:])
+	printName := len(files) > 1
+	for j, f := range files {
+		fi, err := os.Open(f)
 		if err != nil {
-			fmt.Println(err.Error())
-			return
+			fmt.Printf("open %s: no such file or directory\n", f)
+			fmt.Printf("\n")
+			// os.Exit(1)
+			defer os.Exit(1)
+			continue
 		}
-		defer fi.Close()
-		size := fileSize(fi)
-		if nbytes > int(size) {
-			nbytes = int(size)
+		if printName {
+			// if not first or last file
+			if j > 0 || j < len(files)-1 {
+				fmt.Printf("\n==> %s <==\n", f)
+			} else {
+				fmt.Printf("==> %s <==\n", f)
+			}
 		}
-		buf := make([]byte, nbytes)
-		fi.ReadAt(buf, size-int64(nbytes))
-		fmt.Print(string(buf))
+		read := make([]byte, int(nbytes))
+		_, er := fi.ReadAt(read, fileSize(fi)-int64(nbytes))
+		if er != nil {
+			os.Exit(1)
+		}
+		for _, c := range read {
+			fmt.Print(string(c))
+		}
+		if j < len(files)-1 {
+			fmt.Print("\n")
+		}
+		fi.Close()
 	}
 }
 
