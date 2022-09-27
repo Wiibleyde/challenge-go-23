@@ -2,9 +2,10 @@ package main
 
 import (
 	"fmt"
-	"github.com/01-edu/z01"
 	"os"
 	"strconv"
+
+	"github.com/01-edu/z01"
 )
 
 func numberOfBytes(args []string) (int, []string) {
@@ -70,7 +71,7 @@ func main() {
 		}
 		if printName {
 			fmt.Printf("==> %s <==\n", f)
-			
+
 		}
 		read := make([]byte, int(nbytes))
 		_, er := fi.ReadAt(read, fileSize(fi)-int64(nbytes))
@@ -89,4 +90,3 @@ func main() {
 		fi.Close()
 	}
 }
-
