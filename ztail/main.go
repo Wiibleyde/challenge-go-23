@@ -6,14 +6,18 @@ import (
 )
 
 func numberOfBytes(args []string) (int, []string) {
-	// n := len(args)
+	n := len(args)
 	nbytes := 0
 	var files []string
 	for i, v := range args {
-		arg := args[i+1]
-		nbytes = Atoi(arg)
-		_ = v
-		continue
+		if i == n-1 {
+			continue
+		} else {
+			arg := args[i+1]
+			nbytes = Atoi(arg)
+			_ = v
+			continue
+		}
 	}
 	return nbytes, files
 }
