@@ -10,13 +10,12 @@ func numberOfBytes(args []string) (int, []string) {
 	nbytes := 0
 	var files []string
 	for i, v := range args {
-		if i == n-1 {
-			continue
-		} else {
-			arg := args[i+1]
-			nbytes = Atoi(arg)
-			_ = v
-			continue
+		if v == "-c" {
+			if i+1 < n {
+				nbytes = Atoi(args[i+1])
+				files = args[i+2:]
+				break
+			}
 		}
 	}
 	return nbytes, files
@@ -118,3 +117,4 @@ func containsIn0to9(ch rune) bool {
 
 	return false
 }
+
