@@ -6,16 +6,20 @@ import (
 )
 
 func numberOfBytes(args []string) (int, []string) {
-	n := len(args)
-	nbytes := 0
-	var files []string
-	for i, v := range args {
-		if v == "-c" {
-			if i+1 < n {
-				nbytes = Atoi(args[i+1])
-				files = args[i+2:]
-				break
+	nbytes := 10
+	files := []string{}
+	for _, s := range args {
+		if containsIn0to9(rune(s[0])) {
+			nbytes = 0
+			for _, r := range s {
+				if containsIn0to9(r) {
+					nbytes = nbytes*10 + int(r-'0')
+				} else {
+					break
+				}
 			}
+		} else {
+			files = append(files, s)
 		}
 	}
 	return nbytes, files
@@ -31,42 +35,25 @@ func fileSize(fi *os.File) int64 {
 }
 
 func main() {
-	n := len(os.Args)
-	if n < 4 {
-		fmt.Println("Not enough arguments")
-		os.Exit(1)
+	args := os.Args[1:]
+	nbytes, files := numberOfBytes(args)
+	if len(files) == 0 {
+		files = append(files, "")
 	}
-	nbytes, files := numberOfBytes(os.Args[1:])
-	printName := len(files) > 1
-	for j, f := range files {
-		fi, err := os.Open(f)
+	for _, s := range files {
+		fi, err := os.Open(s)
 		if err != nil {
-			fmt.Printf("open %s: no such file or directory\n", f)
-			fmt.Printf("\n")
-			// os.Exit(1)
-			defer os.Exit(1)
-			continue
+			fmt.Println(err.Error())
+			return
 		}
-		if printName {
-			// if not first or last file
-			if j > 0 || j < len(files)-1 {
-				fmt.Printf("\n==> %s <==\n", f)
-			} else {
-				fmt.Printf("==> %s <==\n", f)
-			}
+		defer fi.Close()
+		size := fileSize(fi)
+		if nbytes > int(size) {
+			nbytes = int(size)
 		}
-		read := make([]byte, int(nbytes))
-		_, er := fi.ReadAt(read, fileSize(fi)-int64(nbytes))
-		if er != nil {
-			os.Exit(1)
-		}
-		for _, c := range read {
-			fmt.Print(string(c))
-		}
-		if j < len(files)-1 {
-			fmt.Print("\n")
-		}
-		fi.Close()
+		buf := make([]byte, nbytes)
+		fi.ReadAt(buf, size-int64(nbytes))
+		fmt.Print(string(buf))
 	}
 }
 
@@ -108,11 +95,9 @@ func charToInt(char rune) int {
 	if char < 48 && char > 58 {
 		return 0
 	}
-
 	for i := '1'; i <= char; i++ {
 		count++
 	}
-
 	return count
 }
 
