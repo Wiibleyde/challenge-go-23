@@ -44,10 +44,16 @@ func main() {
 			fmt.Printf("open %s: no such file or directory\n", f)
 			fmt.Printf("\n")
 			// os.Exit(1)
+			defer os.Exit(1)
 			continue
 		}
 		if printName {
-			fmt.Printf("==> %s <==\n", f)
+			// if not first or last file
+			if j > 0 || j < len(files)-1 {
+				fmt.Printf("\n==> %s <==\n", f)
+			} else {
+				fmt.Printf("==> %s <==\n", f)
+			}
 		}
 		read := make([]byte, int(nbytes))
 		_, er := fi.ReadAt(read, fileSize(fi)-int64(nbytes))
