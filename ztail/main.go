@@ -55,7 +55,7 @@ func main() {
 			os.Exit(1)
 		}
 		for _, c := range read {
-			fmt.Print(c)
+			fmt.Print(string(c))
 		}
 		if j < len(files)-1 {
 			fmt.Print("\n")
