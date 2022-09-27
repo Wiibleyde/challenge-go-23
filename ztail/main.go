@@ -42,7 +42,7 @@ func main() {
 		fi, err := os.Open(f)
 		if err != nil {
 			fmt.Printf("open %s: no such file or directory\n", f)
-			os.Exit(1)
+			// os.Exit(1)
 		}
 		if printName {
 			fmt.Printf("==> %s <==\n", f)
