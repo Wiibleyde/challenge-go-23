@@ -54,7 +54,7 @@ func main() {
 		if printName {
 			// if not first or last file
 			if j > 0 || j < len(files)-1 {
-				fmt.Printf("\n==> %s <==\n", f)
+				fmt.Printf("==> %s <==\n", f)
 			} else {
 				fmt.Printf("==> %s <==\n", f)
 			}
