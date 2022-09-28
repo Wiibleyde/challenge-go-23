@@ -1,126 +1,58 @@
 package main
 
 import (
-	"fmt"
 	"os"
 )
 
-func numberOfBytes(args []string) (int, []string) {
-	nbytes := 10
-	files := []string{}
-	for _, s := range args {
-		if containsIn0to9(rune(s[0])) {
-			nbytes = 0
-			for _, r := range s {
-				if containsIn0to9(r) {
-					nbytes = nbytes*10 + int(r-'0')
-				} else {
-					break
-				}
-			}
-		} else {
-			files = append(files, s)
-		}
-	}
-	return nbytes, files
-}
-
-func fileSize(fi *os.File) int64 {
-	fil, err := fi.Stat()
-	if err != nil {
-		fmt.Println(err.Error())
-		return 0
-	}
-	return fil.Size()
-}
-
 func main() {
-	n := len(os.Args)
-	if n < 4 {
-		fmt.Println("Not enough arguments")
-		os.Exit(1)
+	args := os.Args[1:]
+	if len(args) < 3 || args[0] != "-c" || !IsNumeric(args[1]) {
+		return
 	}
-	nbytes, files := numberOfBytes(os.Args[1:])
-	printName := len(files) > 1
-	for j, f := range files {
-		fi, err := os.Open(f)
+	c := Atoi(args[1])
+	for i, a := range args[2:] {
+		content, err := os.ReadFile(a)
 		if err != nil {
-			fmt.Printf("open %s: no such file or directory\n", f)
-			fmt.Printf("\n")
+			os.Stdout.WriteString(err.Error() + "\n")
 			defer os.Exit(1)
 			continue
 		}
-		if printName {
-			if j > 0 || j < len(files)-1 {
-				fmt.Printf("==> %s <==\n", f)
-			} else {
-				fmt.Printf("==> %s <==\n", f)
-			}
+		if i > 0 && i < len(args)-1 {
+			os.Stdout.WriteString("\n")
 		}
-		read := make([]byte, int(nbytes))
-		_, er := fi.ReadAt(read, fileSize(fi)-int64(nbytes))
-		if er != nil {
-			os.Exit(1)
+		ct := string(content)
+		os.Stdout.WriteString("==> " + a + " <==\n")
+		if len(ct) <= c {
+			os.Stdout.WriteString(ct)
+			continue
 		}
-		for _, c := range read {
-			fmt.Print(string(c))
+		for i := c; i > 0; i-- {
+			os.Stdout.WriteString(string(ct[len([]rune(ct))-i]))
 		}
-		if j < len(files)-1 {
-			fmt.Print("\n")
-		}
-		fi.Close()
 	}
 }
 
 func Atoi(s string) int {
-	if StrLen(s) == 0 {
+	negative := false
+	total := 0
+	for _, c := range s {
+		if c >= 48 && c <= 57 {
+			total = total*10 + int(c-48)
+			continue
+		} else if c == '-' || c == '+' && total == 0 {
+			negative = c == '-'
+			continue
+		}
 		return 0
 	}
-	s0 := s
-	if s[0] == '-' || s[0] == '+' {
-		s = s[1:]
-		if StrLen(s) < 1 {
-			return 0
-		}
-	}
-	nb := 0
-	for _, ch := range s {
-		if !containsIn0to9(ch) {
-			return 0
-		}
-		nb = nb*10 + charToInt(ch)
-	}
-	if s0[0] == '-' {
-		nb *= -1
-	}
-	return nb
+	return map[bool]int{true: total * -1, false: total}[negative]
 }
 
-func StrLen(s string) int {
-	letter := 0
-	for _, ele := range s {
-		letter++
-		_ = ele
-	}
-	return letter
-}
-
-func charToInt(char rune) int {
-	count := 0
-	if char < 48 && char > 58 {
-		return 0
-	}
-	for i := '1'; i <= char; i++ {
-		count++
-	}
-	return count
-}
-
-func containsIn0to9(ch rune) bool {
-	for i := '0'; i <= '9'; i++ {
-		if ch == i {
-			return true
+func IsNumeric(s string) bool {
+	for _, c := range s {
+		if !(c >= 48 && c <= 57) && c != '-' {
+			return false
 		}
 	}
-	return false
+	return true
 }
