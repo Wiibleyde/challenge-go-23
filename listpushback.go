@@ -1,17 +1,17 @@
 package student
 
-type NodeL struct {
+type NodeLB struct {
 	Data interface{}
-	Next *NodeL
+	Next *NodeLB
 }
 
-type List struct {
-	Head *NodeL
-	Tail *NodeL
+type ListB struct {
+	Head *NodeLB
+	Tail *NodeLB
 }
 
-func ListPushBack(l *List, data interface{}) {
-	node := &NodeL{Data: data}
+func ListPushBack(l *ListB, data interface{}) {
+	node := &NodeLB{Data: data}
 	if l.Head == nil {
 		l.Head = node
 		l.Tail = node
