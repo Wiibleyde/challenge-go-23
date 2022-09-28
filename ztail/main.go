@@ -47,12 +47,10 @@ func main() {
 		if err != nil {
 			fmt.Printf("open %s: no such file or directory\n", f)
 			fmt.Printf("\n")
-			// os.Exit(1)
 			defer os.Exit(1)
 			continue
 		}
 		if printName {
-			// if not first or last file
 			if j > 0 || j < len(files)-1 {
 				fmt.Printf("==> %s <==\n", f)
 			} else {
@@ -124,6 +122,5 @@ func containsIn0to9(ch rune) bool {
 			return true
 		}
 	}
-
 	return false
 }
