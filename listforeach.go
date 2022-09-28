@@ -1,6 +1,5 @@
 package student
 
-
 func ListForEach(l *List, f func(*NodeL)) {
 	for node := l.Head; node != nil; node = node.Next {
 		f(node)
