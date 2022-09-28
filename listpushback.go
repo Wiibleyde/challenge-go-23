@@ -20,4 +20,3 @@ func ListPushBack(l *List, data interface{}) {
 		l.Tail = node
 	}
 }
-
