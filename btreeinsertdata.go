@@ -2,7 +2,7 @@ package student
 
 type TreeNode struct {
 	Left, Right, Parent *TreeNode
-	Data                 string
+	Data                string
 }
 
 func BTreeInsertData(root *TreeNode, data string) *TreeNode {
