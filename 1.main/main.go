@@ -10,6 +10,8 @@ func main() {
 	student.BTreeInsertData(root, "1")
 	student.BTreeInsertData(root, "7")
 	student.BTreeInsertData(root, "5")
-	max := student.BTreeMax(root)
-	fmt.Println(max.Data)
+	node := student.BTreeSearchItem(root, "1")
+	rplc := &student.TreeNode{Data: "3"}
+	root = student.BTreeTransplant(root, node, rplc)
+	student.BTreeApplyInorder(root, fmt.Println)
 }
